@@ -79,9 +79,9 @@ func bindEnvironmentVariables() {
 		}{
 			HOST: "localhost",
 			PORT: 5432,
-			USER: "root",
+			USER: "app",
 			PASS: "123456",
-			DB:   "hwu",
+			DB:   "chat",
 		},
 	}
 	/*for _, key := range getFlattenKeys("", reflect.ValueOf(appConfig)) {
