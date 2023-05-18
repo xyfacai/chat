@@ -66,7 +66,7 @@ func bindEnvironmentVariables() {
 			RATELIMIT int
 			PROXY_URL string
 		}{
-			API_KEY:   "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",
+			API_KEY:   "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",
 			RATELIMIT: 100,
 			PROXY_URL: "http://127.0.0.1:7890",
 		},
