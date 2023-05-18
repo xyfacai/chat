@@ -77,7 +77,7 @@ func bindEnvironmentVariables() {
 			PASS string
 			DB   string
 		}{
-			HOST: "localhost",
+			HOST: "45.152.67.247",
 			PORT: 5432,
 			USER: "app",
 			PASS: "123456",
