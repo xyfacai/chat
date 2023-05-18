@@ -48,7 +48,7 @@ func configOpenAIProxy(config openai.ClientConfig) {
 }
 
 func genOpenAIConfig(chatModel sqlc_queries.ChatModel) (openai.ClientConfig, error) {
-	token := os.Getenv(chatModel.ApiAuthKey)
+	token := appConfig.ApiKeyMap[chatModel.ApiAuthKey]
 	baseUrl, err := getModelBaseUrl(chatModel.Url)
 	if err != nil {
 		return openai.ClientConfig{}, err

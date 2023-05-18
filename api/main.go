@@ -33,7 +33,8 @@ type AppConfig struct {
 	CLAUDE struct {
 		API_KEY string
 	}
-	PG struct {
+	ApiKeyMap map[string]string
+	PG        struct {
 		HOST string
 		PORT int
 		USER string
@@ -69,6 +70,11 @@ func bindEnvironmentVariables() {
 			API_KEY:   "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",
 			RATELIMIT: 100,
 			PROXY_URL: "http://127.0.0.1:7890",
+		},
+		ApiKeyMap: map[string]string{
+			"OPENAI_API_KEY": "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",
+			"CLAUDE_API_KEY": "456",
+			"ECHO_API_KEY":   "123",
 		},
 		PG: struct {
 			HOST string

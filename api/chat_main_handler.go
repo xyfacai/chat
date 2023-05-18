@@ -11,7 +11,6 @@ import (
 	"io"
 	"log"
 	"net/http"
-	"os"
 	"strings"
 	"time"
 
@@ -351,6 +350,7 @@ func (h *ChatHandler) chatStream(w http.ResponseWriter, chatSession sqlc_queries
 
 	if err != nil {
 		fmt.Println(err.Error())
+		fmt.Println(err)
 		RespondWithError(w, http.StatusInternalServerError, "error.fail_to_do_request", err)
 		return "", "", true
 	}
@@ -574,7 +574,7 @@ func (h *ChatHandler) chatStreamClaude(w http.ResponseWriter, chatSession sqlc_q
 	}
 
 	// add headers to the request
-	apiKey := os.Getenv(chatModel.ApiAuthKey)
+	apiKey := appConfig.ApiKeyMap[chatModel.ApiAuthKey]
 	authHeaderName := chatModel.ApiAuthHeader
 	if authHeaderName != "" {
 		req.Header.Set(authHeaderName, apiKey)
@@ -677,7 +677,7 @@ func (h *ChatHandler) customChatStream(w http.ResponseWriter, chatSession sqlc_q
 		RespondWithError(w, http.StatusInternalServerError, eris.Wrap(err, "get chat model").Error(), err)
 		return "", "", true
 	}
-	apiKey := os.Getenv(chat_model.ApiAuthKey)
+	apiKey := appConfig.ApiKeyMap[chat_model.ApiAuthKey]
 	// set the url
 	url := chat_model.Url
 
