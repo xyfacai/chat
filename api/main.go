@@ -67,12 +67,12 @@ func bindEnvironmentVariables() {
 			RATELIMIT int
 			PROXY_URL string
 		}{
-			API_KEY:   "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",
+			API_KEY:   "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",
 			RATELIMIT: 100,
-			PROXY_URL: "http://127.0.0.1:7890",
+			//PROXY_URL: "http://127.0.0.1:7890",
 		},
 		ApiKeyMap: map[string]string{
-			"OPENAI_API_KEY": "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",
+			"OPENAI_API_KEY": "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",
 			"CLAUDE_API_KEY": "456",
 			"ECHO_API_KEY":   "123",
 		},
