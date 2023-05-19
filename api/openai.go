@@ -30,7 +30,7 @@ func getModelBaseUrl(apiUrl string) (string, error) {
 	if slashIndex > 0 {
 		version = parsedUrl.Path[1 : slashIndex+1]
 	}
-	return fmt.Sprintf("https://vercel-proxy-tan.vercel.app/proxy/%s/%s", parsedUrl.Host, version), nil
+	return fmt.Sprintf("https://chat.bltcy.com/api/proxy/%s/%s", parsedUrl.Host, version), nil
 }
 
 func configOpenAIProxy(config openai.ClientConfig) {
