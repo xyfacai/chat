@@ -67,12 +67,12 @@ func bindEnvironmentVariables() {
 			RATELIMIT int
 			PROXY_URL string
 		}{
-			API_KEY:   "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",
+			//API_KEY:   "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",
 			RATELIMIT: 100,
 			//PROXY_URL: "http://127.0.0.1:7890",
 		},
 		ApiKeyMap: map[string]string{
-			"OPENAI_API_KEY": "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",
+			//"OPENAI_API_KEY": "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",
 			"CLAUDE_API_KEY": "456",
 			"ECHO_API_KEY":   "123",
 		},
@@ -97,6 +97,8 @@ func bindEnvironmentVariables() {
 			logger.Fatal("config: unable to bind env: " + err.Error())
 		}
 	}*/
+	appConfig.OPENAI.API_KEY = os.Getenv("OPENAI_API_KEY")
+	appConfig.ApiKeyMap["OPENAI_API_KEY"] = appConfig.OPENAI.API_KEY
 }
 
 //go:embed sqlc/schema.sql
