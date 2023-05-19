@@ -342,18 +342,19 @@ func (h *ChatHandler) chatStream(w http.ResponseWriter, chatSession sqlc_queries
 	}
 
 	client := openai.NewClientWithConfig(config)
-
+	now := time.Now()
+	fmt.Println(now)
 	openai_req := NewChatCompletionRequest(chatSession, chat_compeletion_messages)
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Minute)
 	defer cancel()
 	stream, err := client.CreateChatCompletionStream(ctx, openai_req)
-
 	if err != nil {
 		fmt.Println(err.Error())
 		fmt.Println(err)
 		RespondWithError(w, http.StatusInternalServerError, "error.fail_to_do_request", err)
 		return "", "", true
 	}
+	fmt.Println(now.Sub(time.Now()))
 	defer stream.Close()
 
 	setSSEHeader(w)
